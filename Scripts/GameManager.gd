@@ -15,8 +15,10 @@ func load_next_level(next_scene : PackedScene):
 	
 func spawn_body(Pos: Vector2):
 	push_warning("in")
+	
 	var body1 = bodies.instantiate()
+	body1.add_to_group("spawned_bodies")
 	add_child.call_deferred(body1)
 	body1.linear_velocity = Vector2.ZERO
-	body1.global_position = Pos + Vector2(0, -20)
+	body1.global_position = Pos + Vector2(0, -30)
 	

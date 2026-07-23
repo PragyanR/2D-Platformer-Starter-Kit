@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c3qas4y41gw7e"]
 
+[ext_resource type="Script" uid="uid://dmyqymyxeb703" path="res://Scripts/bodies.gd" id="1_gfwyv"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dqmft"]
 load_path = "res://.godot/imported/platformerPack_character.png-b980ac2e92b0d9489fe95f0cfb6b85bd.ctex"
 
@@ -9,6 +11,7 @@ size = Vector2(45, 62)
 [node name="Body" type="RigidBody2D" unique_id=536018055]
 physics_interpolation_mode = 1
 continuous_cd = 2
+script = ExtResource("1_gfwyv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1679290371]
 position = Vector2(-4.9763575, 33.997295)
