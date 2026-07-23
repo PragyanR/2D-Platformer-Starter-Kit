@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://domyi75bwl5ad" path="res://Scripts/GameUI.gd" id="6_um0jo"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="7_ns8o6"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_doswy"]
+[ext_resource type="PackedScene" uid="uid://b6k1ydhh0jvgp" path="res://Scenes/Prefabs/chocolate.tscn" id="8_ombkc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rndpx"]
 texture = ExtResource("5_8107p")
@@ -179,3 +180,6 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("8_doswy")
 theme_override_font_sizes/font_size = 32
 text = "x 3"
+
+[node name="Chocolate" parent="." unique_id=1070552759 instance=ExtResource("8_ombkc")]
+position = Vector2(1318, 365)

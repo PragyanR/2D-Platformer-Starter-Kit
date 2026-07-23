@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 # --------- VARIABLES ---------- #
+# GlobalUtils.gd
+class_name player
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
 @export var move_speed : float = 400
