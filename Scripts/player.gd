@@ -132,7 +132,6 @@ func jump_tween():
 func death_manager():
 	AudioManager.death_sfx.play()
 	death_particles.emitting = true
-	push_warning("death_man")
 	GameManager.spawn_body(global_position)
 	death_tween()
 	
