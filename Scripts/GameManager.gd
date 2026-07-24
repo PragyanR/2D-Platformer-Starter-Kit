@@ -33,10 +33,12 @@ func spawn_body(Pos: Vector2):
 		body1.linear_velocity = Vector2.ZERO
 		body1.global_position = Pos #+ Vector2(0, 3)
 	else:
-		lives = 9
-		num_bodies = 0
-		get_tree().call_group("spawned_bodies", "queue_free")
-
-
+		level_reset()
+		
+func level_reset():
+	lives = 9
+	num_bodies = 0
+	get_tree().call_group("spawned_bodies", "queue_free")
+	get_tree().call_group("Chocolate", "reset")
 	
 	

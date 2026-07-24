@@ -132,6 +132,9 @@ metadata/_edit_use_anchors_ = true
 [node name="GameManager" type="Node2D" parent="." unique_id=294621406]
 script = ExtResource("4_vgfkr")
 
+[node name="Chocolate" parent="." unique_id=1070552759 instance=ExtResource("10_5vjlm")]
+position = Vector2(320, 391)
+
 [node name="UserInterface" type="CanvasLayer" parent="." unique_id=1175485038]
 
 [node name="GameUI" type="Control" parent="UserInterface" unique_id=1629586580]
@@ -205,6 +208,3 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("8_gwcy2")
 theme_override_font_sizes/font_size = 32
 text = "x 3"
-
-[node name="Chocolate" parent="UserInterface/Lives" unique_id=1070552759 instance=ExtResource("10_5vjlm")]
-position = Vector2(320, 391)

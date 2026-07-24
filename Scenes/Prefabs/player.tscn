@@ -116,4 +116,5 @@ position = Vector2(2.08165e-12, -48)
 position = Vector2(1, 15)
 shape = SubResource("RectangleShape2D_tvbjh")
 
+[connection signal="area_entered" from="Collision" to="." method="_on_collision_area_entered"]
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

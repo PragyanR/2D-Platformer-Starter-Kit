@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var gravity : float = 30
 @export var max_jump_count : int = 2
 var jump_count : int = 2
-
+var is_dying_from_chocolate := false
 @export_category("Toggle Functions") # Double jump feature is disable by default (Can be toggled from inspector)
 @export var double_jump : = false
 
@@ -131,6 +131,7 @@ func jump_tween():
 	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
 
 func death_manager():
+	var is_dying_from_chocolate := false
 	var death_location: Vector2 = global_position
 	player_died.emit(death_location)
 	AudioManager.death_sfx.play()
@@ -140,10 +141,16 @@ func death_manager():
 	
 # --------- SIGNALS ---------- #›
 
+
 # Reset the player's position to the current level spawn point if collided with any trap
 func _on_collision_body_entered(body):
 	if body.is_in_group("Traps"):
 		death_manager()
-	if body.is_in_group("Chocolate"):
-		#await get_tree().create_timer(5.0).timeout
+
+func _on_collision_area_entered(area):
+	if area.is_in_group("Chocolate") and !is_dying_from_chocolate:
+		push_warning("in choc")
+		is_dying_from_chocolate = true
+		await get_tree().create_timer(5.0).timeout
 		death_manager()
+		is_dying_from_chocolate = false
