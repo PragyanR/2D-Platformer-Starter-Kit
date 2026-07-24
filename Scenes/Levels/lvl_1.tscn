@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://7cru2370tvmd"]
+
+[ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="1_h67iq"]
+[ext_resource type="Texture2D" uid="uid://rw85582dbo7q" path="res://Assets/Backgrounds/60f16c61-e2d9-4ab0-9aea-29ac769e752f.png" id="2_txo2w"]
+[ext_resource type="Script" uid="uid://b0ga5nchu0avd" path="res://Scripts/door.gd" id="3_txo2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycpgg"]
+size = Vector2(2287, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1gdu"]
+size = Vector2(71, 1353)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlwl6"]
+size = Vector2(111, 248)
+
+[node name="Lvl1" type="Node2D" unique_id=50539248]
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=613695883]
+
+[node name="Player" parent="." unique_id=1520831269 instance=ExtResource("1_h67iq")]
+z_index = 1
+position = Vector2(150, 318)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1668810070]
+position = Vector2(16, 36)
+limit_left = 0
+limit_right = 2669
+limit_bottom = 1504
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.4
+drag_top_margin = 0.4
+drag_right_margin = 0.4
+drag_bottom_margin = 0.4
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1603935601]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1380361160]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_txo2w")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1434838804]
+
+[node name="2ndStoryFloor" type="CollisionShape2D" parent="StaticBody2D" unique_id=1682401044]
+position = Vector2(1253, 475)
+shape = SubResource("RectangleShape2D_ycpgg")
+
+[node name="1stStoryFloor2" type="CollisionShape2D" parent="StaticBody2D" unique_id=581839344]
+position = Vector2(1316.5, 908)
+shape = SubResource("RectangleShape2D_ycpgg")
+one_way_collision = true
+
+[node name="BasementFloor3" type="CollisionShape2D" parent="StaticBody2D" unique_id=66933646]
+position = Vector2(1243, 1354)
+shape = SubResource("RectangleShape2D_ycpgg")
+
+[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1610297960]
+position = Vector2(53.5, 713.5)
+shape = SubResource("RectangleShape2D_i1gdu")
+
+[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1773334802]
+position = Vector2(2458, 731)
+shape = SubResource("RectangleShape2D_i1gdu")
+
+[node name="Door" type="Area2D" parent="." unique_id=1222839539]
+script = ExtResource("3_txo2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=579558061]
+visibility_layer = 4
+position = Vector2(2286, 306)
+shape = SubResource("RectangleShape2D_wlwl6")

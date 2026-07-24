@@ -1,0 +1,8 @@
+extends Area2D
+
+@export var target_position: Marker2D  # drag a Marker2D node here in the Inspector
+@export var target_scene: PackedScene  # optional, if teleporting to a different scene
+
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		body.global_position = target_position.global_position
