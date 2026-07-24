@@ -40,5 +40,4 @@ func level_reset():
 	num_bodies = 0
 	get_tree().call_group("spawned_bodies", "queue_free")
 	get_tree().call_group("Chocolate", "reset")
-	
-	
+	get_tree().call_group("Coin", "reset")

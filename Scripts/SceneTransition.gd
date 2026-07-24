@@ -15,7 +15,7 @@ func _ready():
 # You can call this funciton from any script by doing SceneTransition.load_scene(target_scene)
 func load_scene(target_scene: PackedScene):
 	get_tree().call_group("spawned_bodies", "queue_free")
-	
+	GameManager.level_reset()
 	match transition_type:
 		state.FADE:
 			transition_animation("fade", target_scene)

@@ -122,8 +122,8 @@ func level_complete_tween():
 func respawn_tween():
 	var tween = create_tween()
 	tween.stop(); tween.play()
-	tween.tween_property(player_sprite, "scale", Vector2.ONE, 0.15) 
-	tween.parallel().tween_property(player_sprite, "position", Vector2(0,-48), 0.15)
+	tween.tween_property(player_sprite, "scale", Vector2(1.5,1.5), .25) 
+	tween.parallel().tween_property(player_sprite, "position", Vector2(0,-48), .15)
 
 func jump_tween():
 	var tween = create_tween()
@@ -131,7 +131,7 @@ func jump_tween():
 	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
 
 func death_manager():
-	var is_dying_from_chocolate := false
+	is_dying_from_chocolate = false
 	var death_location: Vector2 = global_position
 	player_died.emit(death_location)
 	AudioManager.death_sfx.play()
@@ -152,5 +152,9 @@ func _on_collision_area_entered(area):
 		push_warning("in choc")
 		is_dying_from_chocolate = true
 		await get_tree().create_timer(5.0).timeout
-		death_manager()
-		is_dying_from_chocolate = false
+		if is_dying_from_chocolate:
+			death_manager()
+			is_dying_from_chocolate = false
+		else:
+			pass
+		
